@@ -22,7 +22,7 @@ mongoose
     console.log(err, 'Db is not connected');
   });
 
-app.listen(4040, () => {
-  console.log('Server is running on port 4040');
-});
+// app.listen(4040, () => {
+//   console.log('Server is running on port 4040');
+// });
 module.exports = app;
