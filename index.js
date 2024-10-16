@@ -8,6 +8,9 @@ app.use(express.json());
 app.use(cors());
 app.use('/api/v1', userRoute);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Express API!');
+});
 mongoose
   .connect(
     'mongodb+srv://fawad7998:fawad7998@cluster0.jueeg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
@@ -19,12 +22,7 @@ mongoose
     console.log(err, 'Db is not connected');
   });
 
-// Export app without calling listen
+app.listen(4040, () => {
+  console.log('Server is running on port 4040');
+});
 module.exports = app;
-
-// The server listens when the app is executed outside tests
-if (require.main === module) {
-  app.listen(4040, () => {
-    console.log('Server is running on port 4040');
-  });
-}
