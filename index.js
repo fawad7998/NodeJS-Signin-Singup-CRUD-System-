@@ -19,9 +19,12 @@ mongoose
     console.log(err, 'Db is not connected');
   });
 
-app.get('/', (req, res) => {
-  res.send('API is working');
-});
-app.listen(4040, () => {
-  console.log('Server is running on port 4040');
-});
+// Export app without calling listen
+module.exports = app;
+
+// The server listens when the app is executed outside tests
+if (require.main === module) {
+  app.listen(4040, () => {
+    console.log('Server is running on port 4040');
+  });
+}
