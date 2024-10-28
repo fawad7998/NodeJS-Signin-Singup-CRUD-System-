@@ -3,12 +3,14 @@ const cors = require('cors');
 const express = require('express');
 const userRoute = require('./routes/userRoute');
 const aggRoute = require('./routes/aggrigateRoute');
+const sessionRoute = require('./routes/sessionRoute');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/api/v1', userRoute);
 app.use('/api/v1', aggRoute);
+app.use('/api/v1', sessionRoute);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Express API!');
